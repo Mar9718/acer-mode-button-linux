@@ -1,0 +1,2 @@
+# Sólo crea un nombre estable; conserva los permisos originales del dispositivo.
+SUBSYSTEM=="hidraw", KERNELS=="0018:1025:174B.*", SYMLINK+="acer-nitro-mode", TAG+="systemd", ENV{SYSTEMD_ALIAS}+="/dev/acer-nitro-mode", ENV{SYSTEMD_WANTS}+="acer-nitro-mode.service"

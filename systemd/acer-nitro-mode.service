@@ -1,0 +1,29 @@
+[Unit]
+Description=Botón HID Acer para perfiles de energía
+BindsTo=dev-acer\x2dnitro\x2dmode.device
+After=dev-acer\x2dnitro\x2dmode.device power-profiles-daemon.service
+Wants=power-profiles-daemon.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -I /usr/local/libexec/acer-nitro-mode.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictRealtime=yes
+LockPersonality=yes
+RestrictAddressFamilies=AF_UNIX
+DevicePolicy=closed
+DeviceAllow=/dev/acer-nitro-mode r
+
+[Install]
+WantedBy=multi-user.target

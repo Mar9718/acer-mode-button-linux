@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.log
+*.json
+*.dat
+*.bin
+*.pdf
+*.zip
+work/
+outputs/
+local/
+.DS_Store
